@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -89,9 +90,10 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="px-6 pt-20 pb-16 mx-auto max-w-[75%]">
+      <section className="px-6 pt-20 pb-16 mx-auto max-w-[75%] flex items-start gap-[30%]">
+        <div>
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-3">
-          Software Engineer · AI/ML
+        AI/ML · Software Engineer 
         </p>
         <h1 className="text-4xl font-medium mb-2 tracking-tight">
           Shreenath Gandhi
@@ -108,6 +110,9 @@ export default function Home() {
             Get in touch
           </a>
         </div>
+        </div>
+        <Image src="/avatar.png" alt="Shreenath Gandhi" width={220} height={280} className="rounded-lg shrink-0 hidden dark:md:block" />
+        <Image src="/avatar-light.png" alt="Shreenath Gandhi" width={220} height={280} className="rounded-lg shrink-0 hidden md:block dark:hidden" />
       </section>
 
       {/* Divider */}
