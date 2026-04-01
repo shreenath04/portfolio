@@ -95,7 +95,7 @@ export default function Home() {
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-3">
         AI/ML · Software Engineer 
         </p>
-        <h1 className="text-4xl font-medium mb-2 tracking-tight">
+        <h1 className="text-5xl font-medium mb-2 tracking-tight">
           Shreenath Gandhi
         </h1>
         <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed max-w-2xl">
@@ -128,9 +128,9 @@ export default function Home() {
         <div className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-5">
           <div className="flex items-start justify-between mb-1">
             <p className="text-sm font-medium">Texas Tech University</p>
-            <span className="text-xs text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">Graduating May 2026</span>
+            <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">Graduating May 2026</span>
           </div>
-          <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">B.S. Computer Science · Minor in Mathematics · GPA: 3.5</p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">B.S. Computer Science · Minor in Mathematics · GPA: 3.5</p>
           <div className="flex flex-wrap gap-2 mb-3">
             <span className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">Presidential Merit Scholarship ($7K/yr)</span>
             <span className="text-xs px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">Dean&apos;s List — Multiple Semesters</span>
@@ -163,7 +163,7 @@ export default function Home() {
             "Hardhat", "OpenZeppelin",
             "Git", "Tableau",
           ].map((skill) => (
-            <span key={skill} className="text-xs px-3 py-1.5 rounded-full border border-neutral-400 dark:border-neutral-800 text-neutral-900 dark:text-neutral-400 bg-white dark:bg-neutral-900">
+            <span key={skill} className="text-sm px-3 py-1.5 rounded-full border border-neutral-400 dark:border-neutral-800 text-neutral-900 dark:text-neutral-400 bg-white dark:bg-neutral-900">
               {skill}
             </span>
           ))}
@@ -187,13 +187,13 @@ export default function Home() {
                 <p className="text-sm font-medium">{exp.title}</p>
                 <span className="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap ml-3">{exp.period}</span>
               </div>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">{exp.org}</p>
-              <p className="text-xs text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{exp.hook}</p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{exp.org}</p>
+              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{exp.hook}</p>
               <div className="grid transition-all duration-300 ease-in-out" style={{ gridTemplateRows: expandedExp === i ? "1fr" : "0fr" }}>
                 <div className="overflow-hidden">
                   <ul className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-2">
                     {exp.bullets.map((bullet, j) => (
-                      <li key={j} className="text-xs text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
+                      <li key={j} className="text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
                         {bullet}
                       </li>
                     ))}
@@ -219,13 +219,13 @@ export default function Home() {
           {projects.map((proj, i) => (
             <div key={proj.title} onClick={() => setExpandedProj(expandedProj === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedProj === i ? "w-[550px]" : "w-[280px]"}`}>
               <p className="text-sm font-medium mb-1">{proj.title}</p>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">{proj.tech}</p>
-              <p className="text-xs text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{proj.hook}</p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{proj.tech}</p>
+              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{proj.hook}</p>
               <div className="grid transition-all duration-300 ease-in-out" style={{ gridTemplateRows: expandedProj === i ? "1fr" : "0fr" }}>
                 <div className="overflow-hidden">
                   <ul className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-2">
                     {proj.bullets.map((bullet, j) => (
-                      <li key={j} className="text-xs text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
+                      <li key={j} className="text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
                         {bullet}
                       </li>
                     ))}
@@ -235,7 +235,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <a href="https://github.com/shreenath04" target="_blank" className="inline-block mt-4 text-xs text-neutral-600 dark:text-neutral-400 border-b border-neutral-400 dark:border-neutral-600 pb-0.5 hover:opacity-70 transition-opacity">
+        <a href="https://github.com/shreenath04" target="_blank" className="inline-block mt-4 text-sm text-neutral-600 dark:text-neutral-400 border-b border-neutral-400 dark:border-neutral-600 pb-0.5 hover:opacity-70 transition-opacity">
           View all on GitHub →
         </a>
       </section>
@@ -253,22 +253,22 @@ export default function Home() {
         <div className="flex gap-4 overflow-x-auto pb-2">
           <div className="shrink-0 w-[300px] border border-neutral-400 dark:border-neutral-800 rounded-lg p-5">
             <p className="text-sm font-medium mb-1">VP & Director of Learning & Development</p>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">Major Leagues — Texas Tech University</p>
-            <p className="text-xs text-neutral-700 dark:text-neutral-500 leading-relaxed">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Major Leagues — Texas Tech University</p>
+            <p className="text-sm text-neutral-700 dark:text-neutral-500 leading-relaxed">
               CS hackathon-prep organization. Designed and delivered technical workshops including a full system design session covering distributed systems, load balancing, consistent hashing, and microservices architecture.
             </p>
           </div>
           <div className="shrink-0 w-[300px] border border-neutral-400 dark:border-neutral-800 rounded-lg p-5">
             <p className="text-sm font-medium mb-1">Treasurer</p>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">Students for Global Connections — Texas Tech University</p>
-            <p className="text-xs text-neutral-700 dark:text-neutral-500 leading-relaxed">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Students for Global Connections — Texas Tech University</p>
+            <p className="text-sm text-neutral-700 dark:text-neutral-500 leading-relaxed">
               Cultural diversity organization. Securing sponsorships, managing budgets, and organizing the annual World Wide Showcase event.
             </p>
           </div>
           <div className="shrink-0 w-[300px] border border-neutral-400 dark:border-neutral-800 rounded-lg p-5">
             <p className="text-sm font-medium mb-1">Meta Database Engineer Certificate</p>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-3">Coursera · 2025</p>
-            <p className="text-xs text-neutral-700 dark:text-neutral-500 leading-relaxed">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Coursera · 2025</p>
+            <p className="text-sm text-neutral-700 dark:text-neutral-500 leading-relaxed">
               Professional certificate covering MySQL, schema design, stored procedures, Python database connectivity, and Tableau visualization.
             </p>
           </div>
@@ -294,9 +294,9 @@ export default function Home() {
           </button>
         </form>
         <div className="flex gap-6 pt-4 border-t border-neutral-300 dark:border-neutral-800">
-          <a href="mailto:shreenath.gandhi@ttu.edu" className="text-xs text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">Email</a>
-          <a href="https://linkedin.com/in/shreenathgandhi" target="_blank" className="text-xs text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">LinkedIn</a>
-          <a href="https://github.com/shreenath04" target="_blank" className="text-xs text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">GitHub</a>
+          <a href="mailto:shreenath.gandhi@ttu.edu" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">Email</a>
+          <a href="https://linkedin.com/in/shreenathgandhi" target="_blank" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">LinkedIn</a>
+          <a href="https://github.com/shreenath04" target="_blank" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">GitHub</a>
         </div>
       </section>
 

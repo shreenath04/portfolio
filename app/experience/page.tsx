@@ -123,7 +123,7 @@ export default function Experience() {
             <div key={role.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{role.title}</h2>
-                <span className="text-xs text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
+                <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-1">{role.org}</p>
               <p className="text-xs text-neutral-500 dark:text-neutral-500 italic mb-4">{role.type}</p>
@@ -150,7 +150,7 @@ export default function Experience() {
             <div key={proj.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{proj.title}</h2>
-                <span className="text-xs text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{proj.period}</span>
+                <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{proj.period}</span>
               </div>
               <ul className="flex flex-col gap-2 mt-4 mb-4">
                 {proj.bullets.map((bullet, i) => (
@@ -175,7 +175,7 @@ export default function Experience() {
             <div key={role.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{role.title}</h2>
-                <span className="text-xs text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
+                <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">{role.org}</p>
               <ul className="flex flex-col gap-2">
@@ -196,7 +196,7 @@ export default function Experience() {
         <div className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
           <div className="flex items-start justify-between mb-1">
             <h2 className="text-lg font-medium">Meta Database Engineer Professional Certificate</h2>
-            <span className="text-xs text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">Coursera · 2025</span>
+            <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">Coursera · 2025</span>
           </div>
           <p className="text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed mt-3">
             Capstone: Little Lemon Restaurant Database — fully normalized MySQL relational database with schema design, stored procedures, prepared statements, multi-table queries, Python database connectivity, and Tableau visualization.
