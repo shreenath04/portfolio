@@ -8,7 +8,7 @@ export default function Blog() {
     ];
   
     return (
-      <main className="flex-1 px-6 py-16 max-w-3xl mx-auto">
+      <main className="flex-1 px-6 py-16 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-8">
           Blog
         </p>

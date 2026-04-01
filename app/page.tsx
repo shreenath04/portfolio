@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="px-6 pt-20 pb-16 max-w-3xl mx-auto">
+      <section className="px-6 pt-20 pb-16 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-3">
           Software Engineer · AI/ML
         </p>
@@ -35,12 +35,12 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="mx-auto max-w-[75%] px-6">
         <div className="border-t border-neutral-400 dark:border-neutral-800" />
       </div>
 
       {/* Tech Stack */}
-      <section className="px-6 py-12 max-w-3xl mx-auto">
+      <section className="px-6 py-12 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Tech Stack
         </p>
@@ -54,12 +54,12 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="mx-auto max-w-[75%] px-6">
         <div className="border-t border-neutral-400 dark:border-neutral-800" />
       </div>
 
       {/* Experience */}
-      <section className="px-6 py-12 max-w-3xl mx-auto">
+      <section className="px-6 py-12 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Experience
         </p>
@@ -75,12 +75,12 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="mx-auto max-w-[75%] px-6">
         <div className="border-t border-neutral-400 dark:border-neutral-800" />
       </div>
 
       {/* Projects */}
-      <section className="px-6 py-12 max-w-3xl mx-auto">
+      <section className="px-6 py-12 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Projects
         </p>
@@ -99,12 +99,12 @@ export default function Home() {
       </section>
 
       {/* Divider */}
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="mx-auto max-w-[75%] px-6">
         <div className="border-t border-neutral-400 dark:border-neutral-800" />
       </div>
 
       {/* Contact */}
-      <section id="contact" className="px-6 py-12 max-w-3xl mx-auto">
+      <section id="contact" className="px-6 py-12 mx-auto max-w-[75%]">
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-6">
           Get in Touch
         </p>
