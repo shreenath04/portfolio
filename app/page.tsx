@@ -198,6 +198,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                  <a href={`/experience#${exp.title.toLowerCase().replace(/\s+/g, "-")}`} className="inline-block mt-3 text-xs text-neutral-500 hover:opacity-70 transition-opacity border-b border-neutral-400 pb-0.5">
+                    More details →
+                  </a>
                 </div>
               </div>
             </div>
@@ -230,6 +233,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                  <a href={`/experience#${proj.title.toLowerCase().replace(/\s+/g, "-")}`} className="inline-block mt-3 text-xs text-neutral-500 hover:opacity-70 transition-opacity border-b border-neutral-400 pb-0.5">
+                    More details →
+                  </a>
                 </div>
               </div>
             </div>
@@ -294,7 +300,7 @@ export default function Home() {
           </button>
         </form>
         <div className="flex gap-6 pt-4 border-t border-neutral-300 dark:border-neutral-800">
-          <a href="mailto:shreenath.gandhi@ttu.edu" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">Email</a>
+          <a href="mailto:gandhi.shreenath@gmail.com" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">Email</a>
           <a href="https://linkedin.com/in/shreenathgandhi" target="_blank" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">LinkedIn</a>
           <a href="https://github.com/shreenath04" target="_blank" className="text-sm text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">GitHub</a>
         </div>

@@ -120,7 +120,7 @@ export default function Experience() {
         </p>
         <div className="flex flex-col gap-8 mb-16">
           {research.map((role) => (
-            <div key={role.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
+            <div key={role.title} id={role.title.toLowerCase().replace(/\s+/g, "-")} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{role.title}</h2>
                 <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
@@ -147,7 +147,7 @@ export default function Experience() {
         </p>
         <div className="flex flex-col gap-8 mb-16">
           {projects.map((proj) => (
-            <div key={proj.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
+            <div key={proj.title} id={proj.title.toLowerCase().replace(/\s+/g, "-")} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{proj.title}</h2>
                 <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{proj.period}</span>
@@ -172,7 +172,7 @@ export default function Experience() {
         </p>
         <div className="flex flex-col gap-8 mb-16">
           {leadership.map((role) => (
-            <div key={role.title} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
+            <div key={role.title} id={role.title.toLowerCase().replace(/\s+/g, "-")} className="border border-neutral-400 dark:border-neutral-800 rounded-lg p-6">
               <div className="flex items-start justify-between mb-1">
                 <h2 className="text-lg font-medium">{role.title}</h2>
                 <span className="text-sm text-neutral-600 dark:text-neutral-400 whitespace-nowrap ml-4">{role.period}</span>
