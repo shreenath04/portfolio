@@ -291,10 +291,10 @@ export default function Home() {
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-6">
           Get in Touch
         </p>
-        <form className="flex flex-col gap-3 mb-8">
-          <input type="text" placeholder="Name" className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors" />
-          <input type="email" placeholder="Email" className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors" />
-          <textarea placeholder="Message" rows={4} className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors resize-none" />
+        <form action="https://formspree.io/f/xeeplbdg" method="POST" className="flex flex-col gap-3 mb-8">
+          <input name="name" type="text" placeholder="Name" className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors" />
+          <input name="email" type="email" placeholder="Email" className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors" />
+          <textarea name="message" placeholder="Message" rows={4} className="text-sm px-4 py-3 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 dark:placeholder-neutral-600 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors resize-none" />
           <button type="submit" className="self-start text-sm px-5 py-2.5 rounded-md font-medium text-white bg-gradient-to-br from-neutral-700 to-neutral-500 hover:opacity-90 transition-opacity">
             Send message
           </button>
