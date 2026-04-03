@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shreenath Gandhi | Software Engineer",
+  title: "Shreenath Gandhi | AI/ML + Data Engineer + Software Engineer",
   description: "Portfolio of Shreenath Gandhi — AI/ML Engineer building production-grade systems.",
 };
 
