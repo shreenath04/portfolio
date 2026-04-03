@@ -180,9 +180,9 @@ export default function Home() {
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Research Experience
         </p>
-        <div className="flex gap-4 overflow-x-auto pb-2">
+        <div className="flex flex-col md:flex-row gap-4 md:overflow-x-auto pb-2">
           {experiences.map((exp, i) => (
-            <div key={exp.title} onClick={() => setExpandedExp(expandedExp === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedExp === i ? "w-[550px]" : "w-[300px]"}`}>
+            <div key={exp.title} onClick={() => setExpandedExp(expandedExp === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedExp === i ? "md:w-[550px]" : "md:w-[300px]"} w-full`}>
               <div className="flex items-start justify-between mb-1">
                 <p className="text-sm font-medium">{exp.title}</p>
                 <span className="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap ml-3">{exp.period}</span>
@@ -218,9 +218,9 @@ export default function Home() {
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Projects
         </p>
-        <div className="flex gap-4 overflow-x-auto pb-2">
+        <div className="flex flex-col md:flex-row gap-4 md:overflow-x-auto pb-2">
           {projects.map((proj, i) => (
-            <div key={proj.title} onClick={() => setExpandedProj(expandedProj === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedProj === i ? "w-[550px]" : "w-[280px]"}`}>
+            <div key={proj.title} onClick={() => setExpandedProj(expandedProj === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedProj === i ? "md:w-[550px]" : "md:w-[280px]"} w-full`}>
               <p className="text-sm font-medium mb-1">{proj.title}</p>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{proj.tech}</p>
               <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{proj.hook}</p>
@@ -256,7 +256,7 @@ export default function Home() {
         <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-4">
           Leadership & Activities
         </p>
-        <div className="flex gap-4 overflow-x-auto pb-2">
+        <div className="flex flex-col md:flex-row gap-4 md:overflow-x-auto pb-2">
           <div className="shrink-0 w-[300px] border border-neutral-400 dark:border-neutral-800 rounded-lg p-5">
             <p className="text-sm font-medium mb-1">VP & Director of Learning & Development</p>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Major Leagues — Texas Tech University</p>
