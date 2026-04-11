@@ -2,7 +2,6 @@
 
 import { useChat, type UIMessage } from "@ai-sdk/react";
 import { useState, useRef, useEffect } from "react";
-// 1. Import the markdown parser
 import ReactMarkdown from "react-markdown";
 
 export default function Chatbot() {
@@ -10,6 +9,7 @@ export default function Chatbot() {
   
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false); 
+  const [isExpanded, setIsExpanded] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,7 +41,11 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        <div className="mb-4 w-[calc(100vw-2rem)] sm:w-[400px] h-[calc(100vh-8rem)] sm:h-[600px] sm:min-w-[320px] sm:min-h-[400px] sm:max-w-[80vw] sm:max-h-[85vh] flex flex-col border border-neutral-300 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 shadow-xl overflow-hidden sm:resize animate-in slide-in-from-bottom-4 fade-in duration-300 relative">
+        <div className={`mb-4 flex flex-col border border-neutral-300 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 shadow-xl overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-300 relative transition-all ${
+          isExpanded 
+            ? "w-[calc(100vw-2rem)] sm:w-[800px] h-[calc(100vh-8rem)] sm:h-[80vh]" 
+            : "w-[calc(100vw-2rem)] sm:w-[400px] h-[calc(100vh-8rem)] sm:h-[600px]"
+        }`}>
           
           {/* Header */}
           <div className="px-4 py-3 border-b border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 flex justify-between items-center shrink-0">
@@ -49,13 +53,22 @@ export default function Chatbot() {
               <p className="text-sm font-medium">Shreenath&apos;s AI Agent</p>
               <p className="text-[10px] text-neutral-500 uppercase tracking-widest">Powered by Gemini</p>
             </div>
-            <button 
-              onClick={() => setIsOpen(false)}
-              className="text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors p-2 -mr-2"
-              aria-label="Close chat"
-            >
-              ✕
-            </button>
+            <div className="flex items-center gap-1">
+              <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors p-2 hidden sm:block"
+                aria-label="Toggle size"
+              >
+                {isExpanded ? '⤡' : '⤢'}
+              </button>
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors p-2 -mr-2"
+                aria-label="Close chat"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           {/* Messages Area */}
@@ -66,7 +79,7 @@ export default function Chatbot() {
                   Hi! I&apos;m Shreenath&apos;s AI agent. I know all about his research, tech stack, and experience. How can I help you?
                 </p>
                 <p className="text-sm text-neutral-500 text-center">
-                  This chat being run on Gemini's free tier. Please be generous to not burn my tokens. 🥲 Thank you.
+                  This chat is being run on Gemini&apos;s free tier. Please be generous to not burn my tokens. 🥲 Thank you.
                 </p>
                 
                 <div className="flex flex-col gap-2 mt-2">
@@ -90,7 +103,6 @@ export default function Chatbot() {
                     ? "bg-neutral-800 dark:bg-neutral-200 text-white dark:text-neutral-900" 
                     : "border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-300"
                 }`}>
-                  {/* 2. Wrapped ReactMarkdown in a div to hold the Tailwind classes */}
                   {m.parts.map((part, index) => 
                     part.type === "text" ? (
                       <div 
@@ -123,14 +135,16 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about my experience..."
               disabled={status !== "ready"}
-              className="w-full text-sm px-4 py-2.5 sm:pr-8 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors disabled:opacity-50"
+              className="w-full text-sm px-4 py-2.5 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors disabled:opacity-50"
             />
-            <p className="text-[10px] text-neutral-500 text-center mt-2">
-              AI generated responses mught be inaccurate. Please visit experience tab for accurate metrics/results.
-            </p>
-            <p className="text-[10px] text-neutral-500 text-center mt-2">
-              Do not enter sensitive information.
-            </p>
+            <div className="flex flex-col gap-1 mt-2">
+              <p className="text-[10px] text-neutral-500 text-center">
+                AI generated responses might be inaccurate. Please visit experience tab for accurate metrics/results.
+              </p>
+              <p className="text-[10px] text-neutral-500 text-center">
+                Do not enter sensitive information.
+              </p>
+            </div>
           </form>
         </div>
       )}
