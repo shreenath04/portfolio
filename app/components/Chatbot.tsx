@@ -2,14 +2,21 @@
 
 import { useChat, type UIMessage } from "@ai-sdk/react";
 import { useState, useRef, useEffect } from "react";
+// 1. Import the markdown parser
+import ReactMarkdown from "react-markdown";
 
 export default function Chatbot() {
   const { messages, status, sendMessage } = useChat();
   
   const [input, setInput] = useState("");
-  // 1. Changed to true so it opens automatically on page load
-  const [isOpen, setIsOpen] = useState(true); 
+  const [isOpen, setIsOpen] = useState(false); 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      setIsOpen(true);
+    }
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,7 +31,6 @@ export default function Chatbot() {
 
   const isLoading = status === "submitted" || status === "streaming";
 
-  // 2. Curated starter prompts for recruiters
   const starterPrompts = [
     "Tell me about the 98% accuracy MRI model.",
     "What is the architecture of your AWS stock pipeline?",
@@ -33,19 +39,20 @@ export default function Chatbot() {
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        // 3. Increased dimensions to w-[400px] and h-[600px]
-        <div className="mb-4 w-[400px] h-[600px] flex flex-col border border-neutral-300 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 shadow-xl overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-300">
+        <div className="mb-4 w-[calc(100vw-2rem)] sm:w-[400px] h-[calc(100vh-8rem)] sm:h-[600px] sm:min-w-[320px] sm:min-h-[400px] sm:max-w-[80vw] sm:max-h-[85vh] flex flex-col border border-neutral-300 dark:border-neutral-800 rounded-lg bg-white dark:bg-neutral-900 shadow-xl overflow-hidden sm:resize animate-in slide-in-from-bottom-4 fade-in duration-300 relative">
+          
           {/* Header */}
-          <div className="px-4 py-3 border-b border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 flex justify-between items-center">
+          <div className="px-4 py-3 border-b border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 flex justify-between items-center shrink-0">
             <div>
               <p className="text-sm font-medium">Shreenath&apos;s AI Agent</p>
               <p className="text-[10px] text-neutral-500 uppercase tracking-widest">Powered by Gemini</p>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors"
+              className="text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors p-2 -mr-2"
+              aria-label="Close chat"
             >
               ✕
             </button>
@@ -58,11 +65,10 @@ export default function Chatbot() {
                 <p className="text-sm text-neutral-500 text-center">
                   Hi! I&apos;m Shreenath&apos;s AI agent. I know all about his research, tech stack, and experience. How can I help you?
                 </p>
-                <p className="text-xs text-neutral-500 text-center">
-                  This is chat is being run by Gemini's free tier, please be generous to not burn my tokens.
+                <p className="text-sm text-neutral-500 text-center">
+                  This chat being run on Gemini's free tier. Please be generous to not burn my tokens. 🥲 Thank you.
                 </p>
                 
-                {/* 4. Render clickable starter prompts */}
                 <div className="flex flex-col gap-2 mt-2">
                   {starterPrompts.map((prompt, i) => (
                     <button
@@ -84,8 +90,18 @@ export default function Chatbot() {
                     ? "bg-neutral-800 dark:bg-neutral-200 text-white dark:text-neutral-900" 
                     : "border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/50 text-neutral-800 dark:text-neutral-300"
                 }`}>
+                  {/* 2. Wrapped ReactMarkdown in a div to hold the Tailwind classes */}
                   {m.parts.map((part, index) => 
-                    part.type === "text" ? <span key={index}>{part.text}</span> : null
+                    part.type === "text" ? (
+                      <div 
+                        key={index} 
+                        className="flex flex-col gap-2 [&>p]:m-0 [&>strong]:font-bold [&>ul]:list-disc [&>ul]:pl-4"
+                      >
+                        <ReactMarkdown>
+                          {part.text}
+                        </ReactMarkdown>
+                      </div>
+                    ) : null
                   )}
                 </div>
               </div>
@@ -101,19 +117,19 @@ export default function Chatbot() {
           </div>
 
           {/* Input Area */}
-          <form onSubmit={onSubmit} className="p-3 border-t border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+          <form onSubmit={onSubmit} className="p-3 border-t border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shrink-0">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about my experience..."
               disabled={status !== "ready"}
-              className="w-full text-sm px-4 py-2.5 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors disabled:opacity-50"
+              className="w-full text-sm px-4 py-2.5 sm:pr-8 rounded-md border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-300 placeholder-neutral-500 outline-none focus:border-neutral-500 dark:focus:border-neutral-400 transition-colors disabled:opacity-50"
             />
             <p className="text-[10px] text-neutral-500 text-center mt-2">
-              AI generated responses might be inaccurate. Please visit experience tab to get most accurate metrics/results.
+              AI generated responses mught be inaccurate. Please visit experience tab for accurate metrics/results.
             </p>
             <p className="text-[10px] text-neutral-500 text-center mt-2">
-            Do not enter sensitive information.
+              Do not enter sensitive information.
             </p>
           </form>
         </div>
