@@ -25,7 +25,7 @@ export default function Blog() {
         </div>
         <p className="text-sm text-neutral-500 mt-8">
           More posts coming soon. Follow my journey on{" "}
-          <a href="https://medium.com/@yourusername" target="_blank" className="border-b border-neutral-600 pb-0.5 hover:opacity-70 transition-opacity">
+          <a href="https://medium.com/@gandhi.shreenath" target="_blank" className="border-b border-neutral-600 pb-0.5 hover:opacity-70 transition-opacity">
             Medium
           </a>.
         </p>
