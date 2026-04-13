@@ -1,9 +1,19 @@
 "use client";
-import Image from "next/image";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import InflationDemo from "./components/InflationDemo";
 
 export default function Home() {
+  // Pre-warm the Render backend instantly when the site loads
+  useEffect(() => {
+    fetch("https://inflation-prediction-api.onrender.com/health", {
+      method: "GET",
+    }).catch(() => {
+      // Silently swallow errors
+    });
+  }, []);
+
   const experiences = [
     {
       title: "AI Research Assistant",
@@ -92,27 +102,43 @@ export default function Home() {
       {/* Hero */}
       <section className="px-6 pt-20 pb-16 mx-auto max-w-[75%] flex items-start gap-[30%]">
         <div>
-        <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-3">
-        AI/ML · Software Engineer 
-        </p>
-        <h1 className="text-5xl font-medium mb-2 tracking-tight">
-          Shreenath Gandhi
-        </h1>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed max-w-2xl">
-          CS senior at Texas Tech University building production-grade ML systems and data engineering pipelines.
-          Graduating May 2026. Pursuing roles in AI/ML Engineering, Data Engineering, and AI Software Engineering.
-        </p>
-        <div className="flex gap-3">
-          <a href="/resume.pdf" download className="text-sm px-5 py-2.5 rounded-md font-medium text-white bg-gradient-to-br from-neutral-700 to-neutral-500 hover:opacity-90 transition-opacity">
-            Download resume
-          </a>
-          <a href="#contact" className="text-sm px-5 py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">
-            Get in touch
-          </a>
+          <p className="text-xs tracking-[0.2em] uppercase text-neutral-600 dark:text-neutral-400 mb-3">
+            AI/ML · Software Engineer 
+          </p>
+          <h1 className="text-5xl font-medium mb-2 tracking-tight">
+            Shreenath Jaykumar Gandhi
+          </h1>
+          <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed max-w-2xl">
+            CS senior at Texas Tech University building production-grade ML systems and data engineering pipelines.
+            Graduating May 2026. Pursuing roles in AI/ML Engineering, Data Engineering, and AI Software Engineering.
+          </p>
+          <div className="flex gap-3">
+            <a href="/resume.pdf" download className="text-sm px-5 py-2.5 rounded-md font-medium text-white bg-gradient-to-br from-neutral-700 to-neutral-500 hover:opacity-90 transition-opacity">
+              Download resume
+            </a>
+            <a href="#contact" className="text-sm px-5 py-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:opacity-70 transition-opacity">
+              Get in touch
+            </a>
+          </div>
         </div>
-        </div>
-        <Image src="/avatar.png" alt="Shreenath Gandhi" width={220} height={280} className="rounded-lg shrink-0 hidden dark:md:block" />
-        <Image src="/avatar-light.png" alt="Shreenath Gandhi" width={220} height={280} className="rounded-lg shrink-0 hidden md:block dark:hidden" />
+        <Image 
+          src="/avatar.png" 
+          alt="Shreenath Gandhi" 
+          width={220} 
+          height={280} 
+          priority 
+          style={{ width: "auto", height: "auto" }}
+          className="rounded-lg shrink-0 hidden dark:md:block" 
+        />
+        <Image 
+          src="/avatar-light.png" 
+          alt="Shreenath Gandhi" 
+          width={220} 
+          height={280} 
+          priority 
+          style={{ width: "auto", height: "auto" }}
+          className="rounded-lg shrink-0 hidden md:block dark:hidden" 
+        />
       </section>
 
       {/* Divider */}
@@ -182,15 +208,23 @@ export default function Home() {
         </p>
         <div className="flex flex-col md:flex-row gap-4 md:overflow-x-auto pb-2">
           {experiences.map((exp, i) => (
-            <div key={exp.title} onClick={() => setExpandedExp(expandedExp === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedExp === i ? "md:w-[550px]" : "md:w-[300px]"} w-full`}>
+            <div 
+              key={exp.title} 
+              onClick={() => setExpandedExp(expandedExp === i ? null : i)} 
+              // Added "relative" so the bottom-right absolute positioning works perfectly
+              className={`group relative shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedExp === i ? "md:w-[550px]" : "md:w-[300px]"} w-full`}
+            >
               <div className="flex items-start justify-between mb-1">
                 <p className="text-sm font-medium">{exp.title}</p>
                 <span className="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap ml-3">{exp.period}</span>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{exp.org}</p>
-              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{exp.hook}</p>
+              {/* Added pr-4 to ensure text clears the icon */}
+              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed pr-4">{exp.hook}</p>
+              
               <div className="grid transition-all duration-300 ease-in-out" style={{ gridTemplateRows: expandedExp === i ? "1fr" : "0fr" }}>
-                <div className="overflow-hidden">
+                {/* Added pb-2 to ensure expanded content clears the icon */}
+                <div className="overflow-hidden pb-2">
                   <ul className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-2">
                     {exp.bullets.map((bullet, j) => (
                       <li key={j} className="text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
@@ -203,6 +237,17 @@ export default function Home() {
                   </a>
                 </div>
               </div>
+
+              {/* Pinned absolutely to the bottom right */}
+              <svg 
+                className={`absolute bottom-5 right-5 w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-transform duration-300 ${expandedExp === i ? "rotate-45" : ""}`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth={1.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
             </div>
           ))}
         </div>
@@ -220,12 +265,18 @@ export default function Home() {
         </p>
         <div className="flex flex-col md:flex-row gap-4 md:overflow-x-auto pb-2">
           {projects.map((proj, i) => (
-            <div key={proj.title} onClick={() => setExpandedProj(expandedProj === i ? null : i)} className={`shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedProj === i ? "md:w-[550px]" : "md:w-[280px]"} w-full`}>
+            <div 
+              key={proj.title} 
+              onClick={() => setExpandedProj(expandedProj === i ? null : i)} 
+              // Added "relative"
+              className={`group relative shrink-0 border border-neutral-400 dark:border-neutral-800 rounded-lg p-5 cursor-pointer hover:border-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out ${expandedProj === i ? "md:w-[550px]" : "md:w-[280px]"} w-full`}
+            >
               <p className="text-sm font-medium mb-1">{proj.title}</p>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3">{proj.tech}</p>
-              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed">{proj.hook}</p>
+              <p className="text-sm text-neutral-700 dark:text-neutral-500 italic leading-relaxed pr-4">{proj.hook}</p>
+              
               <div className="grid transition-all duration-300 ease-in-out" style={{ gridTemplateRows: expandedProj === i ? "1fr" : "0fr" }}>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden pb-2">
                   <ul className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-2">
                     {proj.bullets.map((bullet, j) => (
                       <li key={j} className="text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-neutral-500">
@@ -236,8 +287,30 @@ export default function Home() {
                   <a href={`/experience#${proj.title.toLowerCase().replace(/\s+/g, "-")}`} className="inline-block mt-3 text-xs text-neutral-500 hover:opacity-70 transition-opacity border-b border-neutral-400 pb-0.5">
                     More details →
                   </a>
+
+                  {/* Render the Demo inside the expanded card with stopPropagation */}
+                  {proj.title === "Inflation Prediction API" && (
+                    <div 
+                      className="mt-6 pt-6 border-t border-neutral-300 dark:border-neutral-800 cursor-default"
+                      onClick={(e) => e.stopPropagation()} 
+                    >
+                      <InflationDemo />
+                    </div>
+                  )}
+
                 </div>
               </div>
+
+              {/* Pinned absolutely to the bottom right */}
+              <svg 
+                className={`absolute bottom-5 right-5 w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-transform duration-300 ${expandedProj === i ? "rotate-45" : ""}`} 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth={1.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
             </div>
           ))}
         </div>
@@ -308,7 +381,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="px-6 py-6 border-t border-neutral-300 dark:border-neutral-800 text-center">
-        <p className="text-xs text-neutral-500">© 2026 Shreenath Gandhi</p>
+        <p className="text-xs text-neutral-500">© 2026 Shreenath Jaykumar Gandhi</p>
       </footer>
     </main>
   );
