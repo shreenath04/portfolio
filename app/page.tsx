@@ -72,7 +72,7 @@ export default function Home() {
     {
       title: "Inflation Prediction API",
       tech: "FastAPI · scikit-learn · Pydantic",
-      hook: "Dual Random Forest ensemble — R² ~0.63, LOOCV validated",
+      hook: "R² ~0.63, Click to try the API live!!",
       bullets: [
         "Split feature space by economic direction: one model for inflation-driving factors (GDP, rate deviation), one for suppressing factors (unemployment)",
         "Ensemble weights derived from LOOCV performance — better cross-validated model automatically receives higher contribution",
