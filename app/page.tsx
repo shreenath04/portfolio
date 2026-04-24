@@ -300,13 +300,30 @@ export default function Home() {
                     More details →
                   </a>
 
-                  {/* Render the Demo inside the expanded card with stopPropagation */}
                   {proj.title === "Inflation Prediction API" && (
                     <div 
                       className="mt-6 pt-6 border-t border-neutral-300 dark:border-neutral-800 cursor-default"
                       onClick={(e) => e.stopPropagation()} 
                     >
                       <InflationDemo />
+                    </div>
+                  )}
+                  {proj.title === "Counter-UAS Swarm Defense (MARL)" && (
+                    <div
+                      className="mt-6 pt-6 border-t border-neutral-300 dark:border-neutral-800 cursor-default"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <p className="text-xs tracking-[0.2em] uppercase text-neutral-500 mb-3">
+                        Live Demo
+                      </p>
+                      <video
+                        src="/counter-uas-demo.mp4"
+                        controls
+                        muted
+                        loop
+                        playsInline
+                        className="w-full rounded-md border border-neutral-300 dark:border-neutral-700"
+                      />
                     </div>
                   )}
 
