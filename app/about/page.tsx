@@ -37,13 +37,13 @@ export default function AboutPage() {
           >
             <div className="space-y-8 text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed pt-6 border-t border-neutral-200 dark:border-neutral-800">
               <p>
-                Shreenath Jaykumar Gandhi. Some people ask if they said it right. I always tell them if they didn&apos;t. You can call me Shree if you need to, but I&apos;ve never seen a reason to make my name smaller.
+                Shreenath Jaykumar Gandhi. Some people ask if they said it right. I always tell them if they didn&apos;t. You can call me Shree if you need to.
               </p>
               <p>
                 I grew up in Gujarat, India. Came to the US alone at 18 to study Computer Science at Texas Tech. No safety net, no blueprint, just a scholarship and few suitcases. The first year was honestly chaos. No one watching me or telling me to stop. I went all out. And I paid for it.
               </p>
               <p>
-                That summer I fixed what I had broken, came back, and never looked back. Presidential Merit Scholar. 3.5 GPA. Two concurrent research roles. A serverless pipeline running in production every weeknight. A brain tumor classifier outperforming published baselines. I&apos;m not telling you this to impress you, I&apos;m telling you because that gap between who I was freshman year and who I am now is the most honest thing about me. The discipline I have now isn&apos;t a personality trait. It&apos;s something I built, on purpose, from scratch.
+                That summer I fixed what I had broken, came back, and never looked back. Presidential Merit Scholar. 3.5 GPA. Two concurrent research roles. A serverless pipeline running in production every night. A brain tumor classifier outperforming published baselines. I&apos;m not telling you this to impress you, I&apos;m telling you because that gap between who I was freshman year and who I am now is the most honest thing about me. The discipline I have now isn&apos;t a personality trait. It&apos;s something I built, on purpose, from scratch.
               </p>
               <p>
                 I think about the world the way most engineers don&apos;t. I&apos;m deep into geopolitics, not as a hobby but as a philosophy. One Strait of Hormuz closure and gas prices double. Double gas prices and groceries get expensive because of transportation and production costs. Everything is connected. No permanent allies, no permanent adversaries. I applied that lens to how I navigate the world and it&apos;s served me well. It&apos;s also why the systems I want to build sit at the intersection of AI and markets. I don&apos;t just want to write good code. I want the code to mean something at a decision-making level.

@@ -35,6 +35,20 @@ export default function Experience() {
   
     const projects = [
       {
+        title: "Counter-UAS Swarm Defense Simulator (Multi-Agent RL)",
+        period: "2026 | Training & Iteration",
+        bullets: [
+          "Built a full multi-agent reinforcement learning environment from scratch where 5 friendly drones learn to autonomously intercept 5 hostile drones converging on a central base in a 50³ 3D grid",
+          "Each drone selects from 27 discrete actions (3 choices per axis: -1, 0, +1) — a shared PPO policy network controls all friendly agents with a combined observation of all drone positions, velocities, and alive states",
+          "Three concentric defense zones (inner ≤12, mid ≤30, outer >30 units from base) apply escalating penalties when hostiles penetrate deeper — emergent behavior forms layered perimeter defense without any hardcoded patrol logic",
+          "Reward landscape drives all tactics: +3.0× distance-scaled intercept bonus, +1.5 team assist reward, −8.0 base breach penalty, −0.05/step urgency pressure, proximity repulsion between friendlies, and velocity-alignment shaping for pursuit behavior",
+          "Kamikaze interception model — both friendly and hostile are destroyed on contact (≤2.0 units), forcing the agent to learn cost-benefit tradeoffs on when to commit vs. reposition",
+          "Trained with PPO via Stable Baselines 3 on 20 parallel SubprocVecEnv instances, fine-tuned with decayed learning rate (3e-5), tightened clip range (0.08), and reduced entropy (0.002) across 500M+ timesteps",
+          "3D tactical visualization built with PyVista — wireframe engagement hemispheres, real-time drone trails, a rotating radar antenna on the command bunker, and color-coded intercept/breach feedback at 20 FPS",
+        ],
+        stack: "Python, Stable Baselines 3, Gymnasium, PPO, NumPy, PyVista, SubprocVecEnv",
+      },
+      {
         title: "AWS Serverless EOD Stock Data Pipeline",
         period: "March 2026 | Production-deployed",
         bullets: [

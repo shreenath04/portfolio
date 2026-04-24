@@ -1,14 +1,28 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // Added this hook
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname(); // Get the current active path
 
   useEffect(() => setMounted(true), []);
+
+  // Helper to determine if a link is active
+  const isActive = (path: string) => pathname === path;
+
+  // Shared classes for links
+  const navLinkClasses = (path: string) => `
+    text-sm transition-opacity hover:opacity-100
+    ${isActive(path) 
+      ? "text-neutral-900 dark:text-neutral-100 font-medium opacity-100" 
+      : "text-neutral-500 dark:text-neutral-400 opacity-70"
+    }
+  `;
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-12 lg:px-24 py-4 border-b border-neutral-200 dark:border-neutral-800">
@@ -16,18 +30,19 @@ export default function Navbar() {
         SG
       </Link>
       <div className="flex items-center gap-6">
-        <Link href="/" className="text-sm hover:opacity-70 transition-opacity">
+        <Link href="/" className={navLinkClasses("/")}>
           Home
         </Link>
-        <Link href="/experience" className="text-sm text-neutral-400 hover:opacity-70 transition-opacity">
+        <Link href="/experience" className={navLinkClasses("/experience")}>
           Experience
         </Link>
-        <Link href="/blog" className="text-sm text-neutral-400 hover:opacity-70 transition-opacity">
+        <Link href="/blog" className={navLinkClasses("/blog")}>
           Blog
         </Link>
-        <Link href="/about" className="text-sm text-neutral-400 hover:opacity-70 transition-opacity">
+        <Link href="/about" className={navLinkClasses("/about")}>
           About
         </Link>
+        
         {mounted && (
           <button 
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")} 

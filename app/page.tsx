@@ -47,6 +47,18 @@ export default function Home() {
 
   const projects = [
     {
+      title: "Counter-UAS Swarm Defense (MARL)",
+      tech: "PPO · Stable Baselines 3 · Gymnasium · PyVista · NumPy",
+      hook: "5v5 autonomous drone interception — all tactics emerge purely from reward shaping, zero hardcoded behavior",
+      bullets: [
+        "Multi-agent reinforcement learning system where 5 friendly drones learn to intercept 5 hostile drones attacking a central base in a 50³ 3D grid",
+        "Shared PPO policy network with 27 discrete actions per drone (3 axes × 3 directions), trained across 500M+ timesteps on 20 parallel environments",
+        "Three concentric defense zones with escalating penalties drive emergent perimeter defense — no scripted patrol routes or greedy heuristics",
+        "Custom reward engineering: distance-scaled intercept bonuses, kamikaze trade-off modeling, proximity repulsion to prevent dogpiling, and velocity-alignment pursuit shaping",
+        "Real-time 3D tactical visualization with PyVista — engagement spheres, drone trails, rotating radar antenna, and color-coded intercept feedback",
+      ],
+    },
+    {
       title: "EOD Stock Pipeline",
       tech: "AWS Lambda · S3 · EventBridge · Python",
       hook: "3,862 tickers processed nightly — zero failures since deployment",
