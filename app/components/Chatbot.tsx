@@ -34,7 +34,7 @@ export default function Chatbot() {
   const starterPrompts = [
     "Tell me about the 98% accuracy MRI model.",
     "What is the architecture of your AWS stock pipeline?",
-    "What roles are you targeting for May 2026?",
+    "Explain the how you trained MARL Drone Agent.",
     "Explain the DualBrain AI routing logic."
   ];
 
